@@ -4,68 +4,94 @@ import React, { useState } from 'react';
 
 function Stats( props ) {
 
-  // const [ stats, setStats ] = useState({
+  const [ stats, setStats ] = useState({
 
-  //   points: 60,
-  //   dice: 24,
     
-  //   strenght: 10,
-  //   dexterity: 10,
-  //   intelligence:  10,
-  //   winsdom: 10,
-  //   charisma:  10,  
+    strenght: 10,
+    dexterity: 10,
+    intelligence:  10,
+    winsdom: 10,
+    charisma:  10,  
 
-  //   inputValue: Number,
-  // });
+  });
 
   const [ points, setPoints ] = useState(30);
-  const [ statsInput, setstatsInput ] = useState(10);
-  const totalPoints = 30;
+  // punkty do wydania
   
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    if ( value > 18){
-      setstatsInput(18);
-      return;
-    } 
-    if ( value < 4 ){
-      setstatsInput(4);
-      return;
-    }
+  let maxPoints = 80;
+  // let sumaPointsFinal ;
 
-    setstatsInput(value);
-    setPoints(totalPoints-value);
+  const handleInputChange = (event, field) => {
+
+    // DONE WITH WITH
+  
+    let { value } = event.target;
+
+    let input = Math.min(value, points+stats[field] );  
+
+    let sumaPoints = Object.values( stats ).reduce((x, y) => x+y , 0);
+
+    let newState = {};
+    newState[field] = input;
+    setStats({...stats, ...newState});
 
 
+   
+  //  let sumaPoints = stats.strenght + stats.dexterity + stats.intelligence + stats.window + stats.charisma;
+   
+  setPoints (maxPoints-sumaPoints);
+
+  
+  console.log(sumaPoints);
+
+    // console.log(stats);
+    // console.log(field);
+    // console.log(input);
+    // console.log(points);
+  
+  }
+
+  const inputReturn = (field) => {
+    // zapisanie jako funkcja pozwala nam wywołać komponent dalej zmieniając wartość field na nazwę stinga "strenght itp"
+    return(
+
+    <input 
+      class="stats--input"
+      type="number" 
+      name ="Stats input"
+      min="4" max="18"
+      // placeholder = {stats[field]}
+      // tak naprawdę piszemy - wstaw tutaj stats z inputu, którego paramter jest stringiem - moglibyśmy zapisać "{stats["strenght"]" itp - ale parametrem możemy to zmienić i wywołać
+      value = {stats[field]}
+      onChange = {(event) => handleInputChange(event, field)}
+      // na onChange wywołaj funkcje o parametrze event (zdarzenie na stronie), która wywoła funkcje dając 
+      
+      >
+        
+      </input>
+
+    )
   }
 
 
   return(
-    <div className="Stats">
+    <div className="stats__input__conatiner">
    
-    <div> {points} </div>
+   
+    <div classname="points--display"> Points Left: {points} </div>
 
-      <input type="number" 
-      name ="Stats input"
-      placeholder = {statsInput}
-      value = {statsInput}
-      onChange = {handleInputChange}
-      
-      
-      >
-        
-      </input>
-
-      <input type="number" 
-      name ="Stats input"
-      placeholder = {statsInput}
-      value = {statsInput}
-      onChange = {handleInputChange}
-      
-      
-      >
-        
-      </input>
+      <div className="stats__input__holder">
+      <h2>Strenght</h2>  
+      { inputReturn("strenght") } < br />
+      <h2>Dexterity</h2>
+      { inputReturn("dexterity") } < br />
+      <h2>Intelligence</h2>
+      { inputReturn("intelligence") } < br />
+      <h2>Winsdom</h2>
+      { inputReturn("winsdom") } < br />
+      <h2>Charisma</h2>
+      { inputReturn("charisma") } < br />
+      </div>
 
     </div>
   )
@@ -73,3 +99,5 @@ function Stats( props ) {
 
 export default Stats;
 
+//  można wywołać ten sam komponent jak funkcje z mienną wartością - wystarczy, że będzie od niej zależna (filed)
+// niezmienialne jest 30 więc można ją określić zwykłą zmienną
