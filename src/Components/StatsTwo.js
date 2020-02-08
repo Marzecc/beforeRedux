@@ -18,54 +18,59 @@
     });
 
     const [ points, setPoints ] = useState(30);
-    // punkty do wydania
-    
-    let maxPoints = 80;
-
 
 
   const reduceStat = (field) => {
     
 
     let newState = {};
+    if (stats[field] >4 ) { 
     newState[field] = stats[field] - 1;
     setStats({...stats, ...newState});
 
-    console.log(stats );
-    console.log(newState);
-    console.log({...stats, ...newState})
-
     setPoints(points+1);
-    
+    } else {
+      return;
+    }
   }
 
   const riseStat = (field) => {
     
     let newState = {};
-    newState[field] = stats[field] +1;
+    if (stats[field] < 18 && points > 0) {
+    newState[field] = stats[field] + 1;
     setStats({...stats, ...newState});
-
+    setPoints(points-1);
+    } else {
+      return
+    }
     console.log(newState);
 
 
 
-     setPoints(points-1);
+    
   }
 
-
+var vertical = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  
+}
 
 
     const inputReturn = (field) => {
       // zapisanie jako funkcja pozwala nam wywołać komponent dalej zmieniając wartość field na nazwę stinga "strenght itp"
   return(
       <div>
-      <div>{stats[field]}</div>
+     
 
-              <div>
+              <div style={vertical}>
                   <button 
                   onClick={() => {reduceStat(field)}}
                   
                   > - </button>
+                   <div>{stats[field]}</div>
                   <button 
                   onClick= {() => {riseStat(field)}}
                   

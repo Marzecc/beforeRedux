@@ -31,8 +31,8 @@ function App() {
             <div class="poinst__adjust__header">
               <h1>Roll</h1>
             </div>
-            {/* <Dice />   */}
-            <DiceTwo />
+            <Dice />  
+            {/* <DiceTwo /> */}
           </div>
           {/* <Stats /> */}
       </div>
@@ -44,10 +44,10 @@ function App() {
     <div class="header">
         <h1>Race</h1>
       </div>
-      <div class='img_info_container'>
+      {/* <div class='img_info_container'> */}
         
         <SliderRace />
-      </div>
+      {/* </div> */}
     </div>
     
    

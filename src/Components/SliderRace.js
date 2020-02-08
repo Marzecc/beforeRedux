@@ -51,7 +51,11 @@ function valueLabelFormat(value) {
   return marks.findIndex(mark => mark.value === value) ;
 }
 
-
+const changeImg = (value) => {
+  if (value <20) {
+    
+  }
+}
 const sectionStyle = {
 
   width: "30vw",
@@ -73,7 +77,7 @@ const sectionStyle = {
 
   return (
     <div >
-      <div style={sectionStyle}>
+      <div style={ sectionStyle } >
         
       </div>
 
