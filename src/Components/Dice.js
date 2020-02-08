@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import Stats from './Stats';
+import {useContext} from 'react';
+
+import Stats from '../Store';
+import { statContext } from '../Store';
+
 
 function Dice(props) {
 
@@ -13,13 +17,8 @@ function Dice(props) {
 
     });
 
-    const [stats, setStats] = useState({
-        strenght: 1,
-        dexterity: 1,
-        intelligence:  1,
-        winsdom: 1,
-        charisma:  1,
-    })
+    const [ stats, setStats ] = useContext(statContext);
+
 
     const [ diceMax, setDiceMax ] = useState(10);
     

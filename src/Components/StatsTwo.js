@@ -1,21 +1,18 @@
   import React, { useState } from 'react';
-  import Stats from './Stats';
+  import {useContext} from 'react';
+  import Stats from '../Store';
+  import { statContext } from '../Store';
+  import styled from '@emotion/styled';
+  import { css, jsx } from '@emotion/core';
+
+
 
 
 
   function StatsTwo( props ) {
 
 
-    const [ stats, setStats ] = useState({
-      
-      
-      strenght: 10,
-      dexterity: 10,
-      intelligence:  10,
-      winsdom: 10,
-      charisma:  10,  
-
-    });
+    const [ stats, setStats ] = useContext(statContext);
 
     const [ points, setPoints ] = useState(30);
 
@@ -94,6 +91,8 @@ var vertical = {
         <div className="stats__input__holder">
         <h2>Strenght</h2>  
         { inputReturn("strenght") } < br />
+        <h2>Consituition</h2>
+        {inputReturn("consituition")} <br />
         <h2>Dexterity</h2>
         { inputReturn("dexterity") } < br />
         <h2>Intelligence</h2>

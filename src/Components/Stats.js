@@ -56,7 +56,7 @@ function Stats( props ) {
     return(
 
     <input 
-      class="stats--input"
+    className="stats--input"
       type="number" 
       name ="Stats input"
       min="4" max="18"
