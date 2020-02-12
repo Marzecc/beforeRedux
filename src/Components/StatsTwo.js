@@ -5,7 +5,7 @@
   import styled from '@emotion/styled';
   import { css, jsx } from '@emotion/core';
 
-
+  
 
 
 
@@ -20,24 +20,26 @@
     const modifyValue = (field) => {
       let newState = {};
 
-      if (stats[field] > 8 && stats[field] <10) {
+
+      if (stats[field] >= 8 && stats[field] < 10) {
         newState[field] = modify[field] = -1;
         setModify({...modify, ...newState});
       }
-      else if (stats[field] >= 11 && stats[field] < 13) {
+      else if (stats[field] >= 12 && stats[field] < 14) {
         newState[field] = modify[field] = 1;
         setModify({...modify, ...newState});
 
-      }  else if ( stats[field] >= 13 && stats[field] <15) {
+      }  else if ( stats[field] >= 14 && stats[field] < 16) {
      
         newState[field] = modify[field] = 2;
         setModify({...modify, ...newState});
 
-      } else if (stats[field] >= 15 && stats[field] <=16) {
+      } else if (stats[field] >= 16 && stats[field] < 18) {
      
         newState[field] = modify[field] = 3;
         setModify({...modify, ...newState});
-      } else if (stats[field] >= 17){
+
+      } else if (stats[field] > 17){
 
         newState[field] = modify[field] = 4;
         setModify({...modify, ...newState});
@@ -49,30 +51,30 @@
   const reduceStat = (field) => {
     
     let newState = {};
-    if (stats[field] >4 ) { 
+    if (stats[field] > 4 ) { 
     newState[field] = stats[field] - 1;
     setStats({...stats, ...newState});
 
     setPoints(points+1);
- 
-    modifyValue(field);
     } else {
       return;
     }
+    modifyValue(field);
   }
 
   const riseStat = (field) => {
-    
+    modifyValue(field);
     let newState = {};
     if (stats[field] < 18 && points > 0) {
     newState[field] = stats[field] + 1;
     setStats({...stats, ...newState});
     setPoints(points-1);
-    modifyValue(field);
+   
     } else {
       return
     }
     console.log(newState);    
+  
   }
 
 

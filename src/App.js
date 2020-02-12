@@ -4,9 +4,10 @@ import Stats from './Components/Stats.js';
 import StatsTwo from './Components/StatsTwo.js';
 import DiceTwo from './Components/DiceTwo.js';
 import Store from './Store.js';
-
 import Dice from './Components/Dice.js';
 import SliderRace from './Components/SliderRace.js';
+import Class from './Components/Class.js';
+import Skills from './Components/Skills';
 
 function App() {
 
@@ -43,20 +44,28 @@ function App() {
             <StatsTwo />
 
           </div>
-          <div className="dice-adjust">
-            <div className="poinst__adjust__header">
-              <h1>Roll</h1>
-            </div>
-            {/* <Dice />   */}
-          </div>
+        
       </div>
       
       
     </div>
    
    
-    
+    <div className="body--conainer">
+    <div className="header">
+        <h1>Class</h1>
+      </div>
+
+        <Class />
+    </div>
    
+    <div className="body--conainer">
+    <div className="header">
+        <h1>Skills </h1>
+      </div>
+
+        <Skills />
+    </div>
    
 
     </div>
