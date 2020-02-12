@@ -1,6 +1,6 @@
   import React, { useState } from 'react';
   import {useContext} from 'react';
-  import Stats from '../Store';
+  import Stats, { modifyContext } from '../Store';
   import { statContext } from '../Store';
   import styled from '@emotion/styled';
   import { css, jsx } from '@emotion/core';
@@ -13,19 +13,49 @@
 
 
     const [ stats, setStats ] = useContext(statContext);
+    const [ modify, setModify] = useContext(modifyContext);
 
     const [ points, setPoints ] = useState(30);
 
+    const modifyValue = (field) => {
+      let newState = {};
+
+      if (stats[field] > 8 && stats[field] <10) {
+        newState[field] = modify[field] = -1;
+        setModify({...modify, ...newState});
+      }
+      else if (stats[field] >= 11 && stats[field] < 13) {
+        newState[field] = modify[field] = 1;
+        setModify({...modify, ...newState});
+
+      }  else if ( stats[field] >= 13 && stats[field] <15) {
+     
+        newState[field] = modify[field] = 2;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 15 && stats[field] <=16) {
+     
+        newState[field] = modify[field] = 3;
+        setModify({...modify, ...newState});
+      } else if (stats[field] >= 17){
+
+        newState[field] = modify[field] = 4;
+        setModify({...modify, ...newState});
+
+      }
+    }
+// Dokończyć warunki + / -
 
   const reduceStat = (field) => {
     
-
     let newState = {};
     if (stats[field] >4 ) { 
     newState[field] = stats[field] - 1;
     setStats({...stats, ...newState});
 
     setPoints(points+1);
+ 
+    modifyValue(field);
     } else {
       return;
     }
@@ -38,15 +68,14 @@
     newState[field] = stats[field] + 1;
     setStats({...stats, ...newState});
     setPoints(points-1);
+    modifyValue(field);
     } else {
       return
     }
-    console.log(newState);
-
-
-
-    
+    console.log(newState);    
   }
+
+
 
 var vertical = {
   display: "flex",
@@ -72,7 +101,8 @@ var vertical = {
                   onClick= {() => {riseStat(field)}}
                   
                   > + </button>
-
+                  
+              <div> Modyfication:  {modify[field]} </div>
               </div>
       
 

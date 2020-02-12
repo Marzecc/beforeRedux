@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import {useContext} from 'react';
 import Stats, { raceContext } from '../Store';
 import { statContext } from '../Store';
+import {modifyContext} from '../Store';
 import {css} from 'emotion';
 import styled from '@emotion/styled';
 import { jsx } from '@emotion/core';
@@ -55,7 +56,7 @@ function labelText(label) {
 }
 
 function valueLabelFormat(value) {
-  return marks.findIndex(mark => mark.value === value) ;
+  return marks.findIndex(mark => mark.value === value);
 }
 
 
@@ -67,34 +68,41 @@ const [background, setBackground] = useState("url(score-bg.png)");
 
 
 
-  const raceImgStyle = css`
-  width: 30vw;
-  height: 30vh;
-  padding: 3em;
-  margin-left: 15.5em;
-  margin-top: 5em;
-  margin-bottom: 15em;
-  background-repeat:  no-repeat;
-  background-size: cover;
-  background-image: ${background};
-  `;
+  // const raceImgStyle = css`
+  // width: 30vw;
+  // height: 30vh;
+  // padding: 3em;
+  // margin-left: 15.5em;
+  // margin-top: 5em;
+  // margin-bottom: 15em;
+  // background-repeat:  no-repeat;
+  // background-size: cover;
+  // background-image: ${background};
+  // `;
 
-  const raceTextStyle = css`
+  // const raceTextStyle = css`
 
-  color: white;
-  text-align: left;
-  font-size: 0.9em;
-  width: 40vw;
-  margin-left: 30vw;
-  `;
-
+  // color: white;
+  // text-align: left;
+  // font-size: 0.9em;
+  // width: 40vw;
+  // margin-left: 30vw;
+  // `;
 
 
   const changeContainer = (value) => {
-    setBackground("url(dwarf2.png)");
+
+    if (marks.value > 10) {
+    // setBackground("url(dwarf2.png)");
     let newState = {};
     newState = setStats(stats.strenght + 2*1);
     setStats({...stats, ...newState});
+
+    return (
+      <h1>Dupa</h1>
+    );
+  } 
+
    
   }
   
@@ -118,7 +126,8 @@ const [background, setBackground] = useState("url(score-bg.png)");
 
   return (
     <div >
-      <div className={ raceImgStyle } ></div>
+      <div> {changeContainer}
+      </div>
       {/* <div className={raceTextStyle}> {dwarfText} </div> */}
       
         {/* <div className= {raceInfo} ></div> */}
@@ -135,7 +144,7 @@ const [background, setBackground] = useState("url(score-bg.png)");
         // valueLabelDisplay="on"
         min={0}
         max={96}
-        onClick={changeContainer}
+        onChange={(event) => changeContainer(marks.value)}
       />
     </div>
   );

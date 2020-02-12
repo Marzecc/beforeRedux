@@ -13,7 +13,16 @@ export const statContext = React.createContext({
     charisma:  10, 
 });
 
+export const modifyContext = React.createContext({
 
+  strenght: 0,
+  consituition: 0,
+  dexterity: 0,
+  intelligence: 0,
+  winsdom: 0,
+  charisma: 0
+
+})
 
 export const raceContext = React.createContext("");
 
@@ -30,12 +39,26 @@ const Store = ({children}) => {
   
       });
 
+
+
+      const [modify, setModify] = useState({
+
+        strenght: 0,
+        consituition: 0,
+        dexterity: 0,
+        intelligence: 0,
+        winsdom: 0,
+        charisma: 0
+      })
+
       const [race, setRace] = useState("");
 
       return (
         <statContext.Provider value={[stats, setStats]}>
         <raceContext.Provider value={[race,setRace]}>
+          <modifyContext.Provider value={[modify, setModify]}>
             {children}
+            </modifyContext.Provider>
         </raceContext.Provider>
         </statContext.Provider>
        
