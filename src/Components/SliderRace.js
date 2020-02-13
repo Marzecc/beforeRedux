@@ -176,7 +176,7 @@ const [background, setBackground] = useState("url(score-bg.png)");
   
       newState = setStats(stats.strengtht + 2);
       setStats({...stats, ...newState});
-    console.log("dua");
+      console.log("dua");
 
       return(
         <div>
