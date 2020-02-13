@@ -28,9 +28,13 @@ var vertical = {
 
 }
 
-var acrobaticRank = (event) => {
-    let {value} = event.target;
+let acrobaticRank = (event) => {
+    let { value } = event.target;
+
 };
+let acrobaticMics;
+let acrobaticTotal = modify.dexterity + acrobaticRank + acrobaticMics;
+
 
 var colorWhite = {
     color: "#ffffff"
@@ -58,10 +62,6 @@ var colorWhite = {
                     </tr>
                 <tr>
 
-
-
-
-
                 <td>
                 <input type="checkbox" 
                 name="acrobatic" 
@@ -72,6 +72,7 @@ var colorWhite = {
 
                 <td> 
                 <div>
+                    {/* Modyfikator z stats */}
                     {modify.dexterity}
                 </div>
 
@@ -83,7 +84,6 @@ var colorWhite = {
                min="0"
                max="10"
                value= {acrobaticRank}
-               onChange={(event) => console.log(acrobaticRank)}
                ></input>
 
              </td>
@@ -92,10 +92,14 @@ var colorWhite = {
                type="number"
                min="0"
                max="10"
+               value={acrobaticMics}
                ></input>
 
              </td>
 
+           <td>
+                 {acrobaticTotal}
+           </td>
             </tr>
 
            

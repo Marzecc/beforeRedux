@@ -11,10 +11,59 @@ import { css, jsx } from '@emotion/core';
 
 
 function Feature (props) {
+const [newFeat, setNewFeat] = useState('');
+const [feats, setFeats] = useState([]);
+// Jeśli rasa / klasa wpływa na feats będzie można je zdefijować tutaj
+// {id: 1, text: "cośtam tośtam"} setFeats ([...feats, {id: 1, text: "XXX"}])
 
+var colorWhite = {
+    color: "#ffffff"
+}
 
-    reutrn (
+function handleNewFeatChange(event)  {
+    let {value} = event.target;
 
+    event.preventDefault();
+    setNewFeat(value);
+}
+
+function handleNewFeat(e) {
+    var count;
+    e.preventDefault();
+    if (newFeat === '') return;
+    setFeats([...feats, {id: Date.now() , text: newFeat}]);
+    e.target.reset();
+}
+
+function removeFeat (id) {
+    setFeats(feats.filter((feats) => feats.id != id))
+}
+    return (
+        <div className="feats_container">
+            <h1>Add Feats</h1>
+            <form onSubmit= {handleNewFeat}>
+                <input
+                placeholder="Add feat..."
+                type="text"
+                onChange = {(event) => handleNewFeatChange(event)} />
+                <ul>
+                    {feats.map((feats) => (
+                       <li 
+                       style={colorWhite} 
+                       key={feats.id}> 
+                       {feats.text} 
+
+                       <a
+                       href="#"
+                       onClick={() =>removeFeat(feats.id)}
+                       > XXX </a>
+
+                       </li> 
+                    ))}
+               
+                </ul>
+             </form>
+        </div>
     )
 }
 

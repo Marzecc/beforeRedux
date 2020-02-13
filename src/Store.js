@@ -26,6 +26,9 @@ export const modifyContext = React.createContext({
 
 export const raceContext = React.createContext("");
 
+export const newFeatsContext = React.createContext('');
+export const featsContext = React.createContext([]);
+
 const Store = ({children}) => {
     const [ stats, setStats ] = useState({
       
@@ -53,13 +56,20 @@ const Store = ({children}) => {
 
       const [race, setRace] = useState("");
 
+
+      const [newFeat, setNewFeat] = useState('');
+      const [feats, setFeats] = useState([]);
+
       return (
         <statContext.Provider value={[stats, setStats]}>
-        <raceContext.Provider value={[race,setRace]}>
-          <modifyContext.Provider value={[modify, setModify]}>
-            {children}
-            </modifyContext.Provider>
-        </raceContext.Provider>
+          <raceContext.Provider value={[race,setRace]}>
+             <modifyContext.Provider value={[modify, setModify]}>
+                <newFeatsContext.Provider value={[newFeat, setNewFeat]}>
+                  
+                 {children}
+                </newFeatsContext.Provider>
+             </modifyContext.Provider>
+          </raceContext.Provider>
         </statContext.Provider>
        
       );

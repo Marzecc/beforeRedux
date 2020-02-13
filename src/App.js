@@ -8,6 +8,7 @@ import Dice from './Components/Dice.js';
 import SliderRace from './Components/SliderRace.js';
 import Class from './Components/Class.js';
 import Skills from './Components/Skills';
+import Feature from './Components/Feature';
 
 function App() {
 
@@ -66,7 +67,13 @@ function App() {
 
         <Skills />
     </div>
-   
+    <div className="body--conainer">
+    <div className="header">
+        <h1> Feats </h1>
+      </div>
+
+        <Feature />
+    </div>
 
     </div>
     </Store>
