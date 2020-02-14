@@ -17,9 +17,12 @@
 
     const [ points, setPoints ] = useState(30);
 
+
+
+    // modyfikator powinien być pobierany/ obliczany na bierząco! "get.modify" - nie trzymać go
+
     const modifyValue = (field) => {
       let newState = {};
-
 
       if (stats[field] >= 8 && stats[field] < 10) {
         newState[field] = modify[field] = -1;

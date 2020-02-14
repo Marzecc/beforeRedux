@@ -35,7 +35,6 @@ function Stats( props ) {
     newState[field] = input;
     setStats({...stats, ...newState});
 
-
    
   //  let sumaPoints = stats.strenght + stats.dexterity + stats.intelligence + stats.window + stats.charisma;
    
@@ -56,7 +55,7 @@ function Stats( props ) {
     return(
 
     <input 
-    className="stats--input"
+      className="stats--input"
       type="number" 
       name ="Stats input"
       min="4" max="18"

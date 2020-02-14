@@ -7,6 +7,7 @@ import white from '@material-ui/core/colors/purple';
 import {useContext} from 'react';
 import Stats, { modifyContext } from '../Store';
 import { statContext } from '../Store';
+import { classContext } from '../Store';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 
@@ -18,6 +19,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 function Class (props)  {
+
+  const [characterClass, setCharacterClass] = useContext(classContext)
 
         const marks = [
           {
@@ -61,7 +64,7 @@ function Class (props)  {
             label: 'ROGUE',
           },
           {
-            value: 99,
+            value: 110,
             label: 'WIZARD',
           },
         
@@ -79,12 +82,153 @@ function Class (props)  {
           return marks.findIndex(mark => mark.value === value);
         }
 
+const barbarian = () => {
 
+}
+const bard = () => {
 
+}
+const cleric = () => {
+
+}
+const druid = () => {
+
+}
+const fighter = () => {
+
+}
+const monk = () => {
+
+}
+const ranger = () => {
+
+}
+const sorccerer = () => {
+
+}
+const palladin = () => {
+
+}
+const rogue = () => {
+
+}
+const wizard = () => {
+
+}
+
+      const changeContainer = (event, value) => {
+          if (value === 0) {
+            setCharacterClass("barbarian")
+          } else if ( value === 11) {
+            setCharacterClass("bard")
+          } else if (value === 22) {
+            setCharacterClass('cleric')
+          } else if (value === 33) {
+            setCharacterClass('druid')
+          } else if (value ===44) {
+            setCharacterClass('fighter')
+          } else if (value === 55) {
+            setCharacterClass('monk')
+          } else if (value === 66) {
+            setCharacterClass('ranger')
+         
+        } else if (value === 77) {
+          setCharacterClass('sorccerer')
+        } else if (value === 88) {
+          setCharacterClass('pallading')
+        } else if (value === 99) {
+          setCharacterClass('rogue')
+        } else if (value === 110) {
+          setCharacterClass('wizard')
+        }
+      }
+
+      const changeImage = (characterClass) => {
+        if (characterClass === 'barbarian') {
+          return (
+          <div>
+            {barbarian()}
+          </div>
+          )
+        } else if (characterClass === 'bard') {
+          return (
+            <div>
+              {bard()}
+            </div>
+            )
+
+        } else if (characterClass === 'cleric') {
+          return (
+            <div>
+              {cleric()}
+            </div>
+            )
+
+        } else if (characterClass === 'druid') {
+          return (
+            <div>
+              {druid()}
+            </div>
+            )
+
+        } else if (characterClass === 'fighter') {
+          return (
+            <div>
+              {fighter()}
+            </div>
+            )
+      } else if (characterClass === 'monk') {
+        return (
+          <div>
+            {monk()}
+          </div>
+          )
+      }else if (characterClass === 'ranger') {
+        return (
+          <div>
+            {ranger()}
+          </div>
+          )
+      }else if (characterClass === 'sorccerer') {
+        return (
+          <div>
+            {sorccerer()}
+          </div>
+          )
+      }else if (characterClass === 'pallading') {
+        return (
+          <div>
+            {palladin()}
+          </div>
+          )
+      }else if (characterClass === 'rogue') {
+        return (
+          <div>
+            {rogue()}
+          </div>
+          )
+      }else if (characterClass === 'wizard') {
+        return (
+          <div>
+            {wizard()}
+          </div>
+          )
+      }
+    }
     return(
         <div>
 
+<div className={css`
+      margin-bottom: 4em;
+      margin-top: 3em;
+      box-shadow: inset 0 0 0 1000px rgba(77, 77, 77, 0.4);
+      width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
 
+
+      `}> {changeImage(characterClass)}
+      </div>
 
     <Slider className="character-peaking"
         defaultValue={0}
@@ -95,9 +239,8 @@ function Class (props)  {
         color='secondary'
         // valueLabelDisplay="on"
         min={0}
-        max={99}
-        // onChangeCommitted={(event, value) => changeContainer(event, value)}
-      />
+        max={110}
+        onChangeCommitted={(event, value) => changeContainer(event, value)}      />
         </div>
     )
 }
