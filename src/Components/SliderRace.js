@@ -25,7 +25,7 @@ import RacesShow from './RacesShow';
 import {newFeatContext, featsContext, raceModifyContext} from '../Store';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+// Do guzików
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function SliderRace(props) {
+  // Do guzików
   const classes = useStyles();
 
 

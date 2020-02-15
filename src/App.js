@@ -52,7 +52,7 @@ function App() {
     </div>
    
    
-    <div className="body--conainer">
+    <div className="race_slider">
     <div className="header">
         <h1>Class</h1>
       </div>
