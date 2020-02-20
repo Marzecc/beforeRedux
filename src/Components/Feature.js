@@ -23,7 +23,6 @@ var colorWhite = {
 
 function handleNewFeatChange(event)  {
     let {value} = event.target;
-
     event.preventDefault();
     setNewFeat(value);
 }
@@ -32,7 +31,10 @@ function handleNewFeat(e) {
     var count;
     e.preventDefault();
     if (newFeat === '') return;
-    setFeats([...feats, {id: Date.now() , text: newFeat}]);
+    setFeats([
+        ...feats, 
+        {id: Date.now() , 
+        text: newFeat}]);
     e.target.reset();
 }
 
@@ -58,7 +60,7 @@ function removeFeat (id) {
 
                        <a
                        href="#"
-                       onClick={() =>removeFeat(feats.id)}
+                       onClick={() => removeFeat(feats.id)}
                        > XXX </a>
 
                        </li> 
@@ -72,11 +74,11 @@ function removeFeat (id) {
 
 export default Feature;
 
-// Slider, żeby zmieniał się staty zaleznie od wartości i obrazek
-// ---
-// To samo w class
-// ---
+
 // Skills, żeby pobierały się wartości z pól obok i dodawały w ostatnim oknie (automatiko)
 // ---
+// Buttons w statach przy rasach
+// ----
 // Stats warunki dziwnie działaja
 // ---
+// Skakanie strony do który przy usuwaniu fetów

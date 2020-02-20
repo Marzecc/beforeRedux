@@ -92,6 +92,11 @@ const [feats, setFeats] = useContext(featsContext);
 const [ stats, setStats ] = useContext(statContext);
 const [raceModify, setRaceModify] = useContext(raceModifyContext);
 
+let changeStat = () => {
+ 
+    console.log("dupa")
+  
+}
 
 const [race, setRace] = useContext(raceContext);
 // Zawartośc pudełek - zdjęcie - tekst - buttony
@@ -341,18 +346,38 @@ const [race, setRace] = useContext(raceContext);
         <p><b>Skilled:  </b> Humans gain an additional skill rank at 1st level and one additional rank whenever they gain a level.  
         </p>
         <p><b>Languages: </b>  Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).
-        </p>
+        </p><br/>
 
-        <p> <b>Bonus to Ability Score</b></p>
-        <ButtonGroup size= "small" variant="contained" color="primary" aria-label="contained primary button group"
-        >
-        <Button>Strength</Button>
-        <Button>Constitution</Button>
-        <Button>Dexterity</Button>
-        <Button>Intelligence</Button>
-        <Button>Winsdom</Button>
-        <Button>Charisma</Button>
-        </ButtonGroup>
+        <p> <b> +2 Bonus to Ability Score: </b></p> 
+        {/* <ButtonGroup size= "small" variant="contained" color="primary" aria-label="contained primary button group"
+        > */}
+        <Button 
+        size= "small"
+        color='primary'
+        variant="contained"
+        onClick={changeStat()}>Strenght</Button>
+        <Button 
+        size= "small"
+        color='primary'
+        variant="contained" 
+        >Constitution</Button>
+        <Button
+        size= "small"
+        color='primary'
+        variant="contained">Dexterity</Button>
+        <Button
+        size= "small"
+        color='primary'
+        variant="contained">Intelligence</Button>
+        <Button
+        size= "small"
+        color='primary'
+        variant="contained">Winsdom</Button>
+        <Button
+        size= "small"
+        color='primary'
+        variant="contained">Charisma</Button>
+        {/* </ButtonGroup> */}
        {/* Zmienić na 1. funkcje, która blokuje się po kliknięciu */}
       </div>
 

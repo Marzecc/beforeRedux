@@ -191,7 +191,6 @@ const wizard = () => {
       const changeContainer = (event, value) => {
           if (value === 0) {
             setCharacterClass("barbarian")
-
           } else if ( value === 11) {
             setCharacterClass("bard")
           } else if (value === 22) {
@@ -282,12 +281,18 @@ const wizard = () => {
             {rogue()}
           </div>
           )
-      }else if (characterClass === 'wizard') {
+      } else if (characterClass === 'wizard') {
         return (
           <div>
             {wizard()}
           </div>
-          )
+          ) 
+      } else {
+        return (
+          <div>
+            {barbarian()}
+          </div>
+        )
       }
     }
     return(

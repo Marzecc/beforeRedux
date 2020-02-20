@@ -28,12 +28,13 @@ var vertical = {
 
 }
 
-let acrobaticRank = (event) => {
-    let { value } = event.target;
-
-};
+let acrobaticRank;
 let acrobaticMics;
-let acrobaticTotal = modify.dexterity + acrobaticRank + acrobaticMics;
+let acrobaticTotal = () => { 
+    return  acrobaticRank + acrobaticMics + modify.dexterity;
+
+
+}
 
 
 var colorWhite = {
@@ -42,69 +43,75 @@ var colorWhite = {
     return (
         <div style={colorWhite}>
             <table style={vertical}>
+                <tbody>
                 <tr >
                         
-                    <td>
-                    \\ SKILL NAME //
+                    <td style={vertical}>
+                    -- SKILL NAME --
                     </td>
-                    <td>
-                    \\ ABILITY MOD //
+                    <td style={vertical}>
+                    -- ABILITY MOD --
+                    </td >
+                    <td style={vertical}>
+                    -- RANKS --
+                    </td >
+                    <td style={vertical}>
+                    -- MISC MOD --
                     </td>
-                    <td>
-                    \\ RANKS //
-                    </td>
-                    <td>
-                    \\ MISC MOD //
-                    </td>
-                    <td>
-                    \\ TOTAL BONUS //
+                    <td style={vertical}>
+                    -- TOTAL BONUS --
                     </td>
                     </tr>
                 <tr>
-
-                <td>
+               
+                <td style={vertical}>
                 <input type="checkbox" 
                 name="acrobatic" 
                 > 
                 </input>
-                <label for="acrobatic" style= {colorWhite}> Acrobatic (DEX)</label> 
+                <label for="acrobatic" style= {colorWhite}> Acrobatic (DEX) </label> 
                 </td>
 
                 <td> 
-                <div>
+                <div style={vertical}>
                     {/* Modyfikator z stats */}
                     {modify.dexterity}
+                    
                 </div>
 
              </td>
 
-             <td> 
+             <td style={vertical}> 
+             {/* Modyfikator z poziomu */}
                <input 
                type="number"
                min="0"
                max="10"
                value= {acrobaticRank}
+               
                ></input>
 
              </td>
-             <td> 
-               <input 
+             <td style={vertical}>  
+             {/* Modyfikator z MIC */}
+               <input  
                type="number"
                min="0"
                max="10"
                value={acrobaticMics}
+               onChange={console.log(acrobaticTotal)}
+
                ></input>
 
              </td>
 
            <td>
-                 {acrobaticTotal}
+               <div>
+                 {acrobaticTotal()}
+                 </div>
            </td>
             </tr>
-
-           
-
-            
+            </tbody>
             </table>
             < br/>
             
@@ -112,7 +119,7 @@ var colorWhite = {
             name="1" 
             value="Bike"> 
             </input>
-            <label for="1"> Acrobatic (DEX)</label>  < br/>
+            <label for="1"> Acrobatic (DEX) </label>  < br/>
 
             <input type="checkbox" 
             name="1" 
