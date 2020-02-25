@@ -27,14 +27,15 @@ var vertical = {
   fontSize: '1em',
 
 }
-
 let acrobaticRank;
-let acrobaticMics;
-let acrobaticTotal = () => { 
-    return  acrobaticRank + acrobaticMics + modify.dexterity;
-
-
+let acrobaticRankChange = (event) => {
+    let { value } = event.target;
+    return value;
 }
+
+let acrobaticMics;
+let acrobaticTotal = acrobaticRank + acrobaticMics + modify.dexterity;
+
 
 
 var colorWhite = {
@@ -88,6 +89,8 @@ var colorWhite = {
                min="0"
                max="10"
                value= {acrobaticRank}
+               onChange= {(event) => acrobaticRankChange(event)}
+
                
                ></input>
 
@@ -99,7 +102,7 @@ var colorWhite = {
                min="0"
                max="10"
                value={acrobaticMics}
-               onChange={console.log(acrobaticTotal)}
+            //    onChange={console.log(acrobaticTotal)}
 
                ></input>
 
@@ -107,7 +110,7 @@ var colorWhite = {
 
            <td>
                <div>
-                 {acrobaticTotal()}
+                 {acrobaticTotal}
                  </div>
            </td>
             </tr>

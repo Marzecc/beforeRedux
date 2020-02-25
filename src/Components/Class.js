@@ -120,37 +120,16 @@ const barbarian = () => {
     `}>
       {/* Text */}
       <h2> Class Skills </h2>
+
+     
+      <p>   <b>Role: </b> Barbarians excel in combat, possessing the martial prowess and fortitude to take on foes seemingly far superior to themselves. With rage granting them boldness and daring beyond that of most other warriors, barbarians charge furiously into battle and ruin all who would stand in their way. </p>
+      <p><b>Alignment: </b>Any nonlawful.  </p>
+      <p><b>Hit Die: </b>d12.  </p>
       <p>
       The barbarian’s class skills are Acrobatics (Dex), Climb (Str), Craft (Int), Handle Animal (Cha), Intimidate (Cha), Knowledge (nature) (Int), Perception (Wis), Ride (Dex), Survival (Wis), and Swim (Str). Skill Ranks per Level: 4 + Int modifier.
- </p>
-      <p>   <b>Slow and Steady:</b> Dwarves have a base speed of 20 feet, but their speed is never modified by armor
-          or encumbrance.</p>
-      <p><b>Darkvision</b>Dwarves can see in the dark up to 60 feet. </p>
-      <p><b>Defensive Training:</b>Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype.
       </p>
-      <p><b>Greed:</b> Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price
-      of nonmagical goods that contain precious metals or gemstones.
-      </p>
-      <p><b>Hatred:</b> Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and
-      goblinoid subtypes due to special training against these hated foes.
-      </p>
-      <p><b>Hardy</b> Dwarves receive a +2 racial bonus on saving throws against poison, spells, and
-      spell-like abilities.
-      </p>
-      <p><b>Stability:</b>Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a
-      bull rush or trip attempt while standing on the ground.
-      </p>
-      <p><b>Stonecunning: </b>Dwarves receive a +2 bonus on Perception checks to potentially notice unusual
-      stonework, such as traps and hidden doors located in stone walls or floors. They receive a
-      check to notice such features whenever they pass within 10 feet of them, whether or not they are
-      actively looking.
-      </p>
-      <p><b>Weapon Familiarity</b>Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat
-      any weapon with the word “dwarven” in its name as a martial weapon.
-      </p>
-      <p><b>Languages:</b> Dwarves begin play speaking Common and Dwarven. Dwarves with high Intelligence
-      scores can choose from the following: Giant, Gnome, Goblin, Orc, Terran, and Undercommon.</p>
-
+     
+     
      
     </div>
 
@@ -190,7 +169,8 @@ const wizard = () => {
 
       const changeContainer = (event, value) => {
           if (value === 0) {
-            setCharacterClass("barbarian")
+            setCharacterClass("barbarian");
+            setFeats ([...feats, {id: 1, text: "BARBARIAN"}]);
           } else if ( value === 11) {
             setCharacterClass("bard")
           } else if (value === 22) {

@@ -92,10 +92,17 @@ const [feats, setFeats] = useContext(featsContext);
 const [ stats, setStats ] = useContext(statContext);
 const [raceModify, setRaceModify] = useContext(raceModifyContext);
 
-let changeStat = () => {
- 
-    console.log("dupa")
-  
+// Button do zmiany stat
+let changeStatStrenght = () => {
+  let newStats = {};
+  newStats.strenght = Stats.strenght = 12;
+  newStats.dexterity = Stats.dexterity = 10;
+  newStats.consituition = Stats.consituition = 10;
+  newStats.intelligence = Stats.intelligence = 10;
+  newStats.winsdom = Stats.winsdom = 10;
+  newStats.charisma = Stats.charisma = 10;
+  setStats({...stats, ...newStats});
+  console.log(stats);
 }
 
 const [race, setRace] = useContext(raceContext);
@@ -355,7 +362,7 @@ const [race, setRace] = useContext(raceContext);
         size= "small"
         color='primary'
         variant="contained"
-        onClick={changeStat()}>Strenght</Button>
+        onClick={() => changeStatStrenght()}>Strenght</Button>
         <Button 
         size= "small"
         color='primary'
@@ -597,81 +604,145 @@ const [race, setRace] = useContext(raceContext);
       if (value === 0) {
   // DWARF
 
-        newState.consituition = raceModify.consituition = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.consituition = raceModify.consituition = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.winsdom = raceModify.winsdom = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.winsdom = raceModify.winsdom = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.charisma = raceModify.charisma = 2;
-        setRaceModify({...raceModify,...newState});
+        // newState.charisma = raceModify.charisma = -2;
+        // setRaceModify({...raceModify,...newState});
+
+        newState.strenght = stats.strenght = 10 ;
+        newState.consituition = stats.consituition = 12;
+        newState.dexterity = stats.dexterity = 10 ;
+        newState.intelligence = stats.intelligence = 10 ;
+        newState.winsdom = stats.winsdom = 12 ;
+        newState.charisma = stats.charisma = 8;
+        setStats({...stats, newState});
 
 
         setRace("dwarf");
 
-        setFeats([...feats, {id: 1, text: "FEATS KRASNALA"}]);
-
+      
       } else if ( value === 16 ) {
     // HALGING
-        newState.consituition = raceModify.consituition = 2;
-        setRaceModify({...raceModify, ...newState});
 
-        newState.charisma = raceModify.charisma = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.consituition = raceModify.consituition = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.strenght = raceModify.strenght = -2;
-        setRaceModify({...raceModify,...newState});
+        // newState.charisma = raceModify.charisma = 2;
+        // setRaceModify({...raceModify, ...newState});
+
+        // newState.strenght = raceModify.strenght = -2;
+        // setRaceModify({...raceModify,...newState});
+
+        newState.strenght = stats.strenght = 8 ;
+        newState.consituition = stats.consituition =12;
+        newState.dexterity = stats.dexterity = 8 ;
+        newState.intelligence = stats.intelligence = 10 ;
+        newState.winsdom = stats.winsdom = 10 ;
+        newState.charisma = stats.charisma = 12;
+       
+        setStats({...stats, newState});
 
         setRace("halfing");
 
       } else if ( value === 32 ) {
         // ELF
 
-        newState.dexterity = raceModify.dexterity = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.dexterity = raceModify.dexterity = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.intelligence = raceModify.intelligence = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.intelligence = raceModify.intelligence = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.consituition = raceModify.consituition = -2;
-        setRaceModify({...raceModify,...newState});
+        // newState.consituition = raceModify.consituition = -2;
+        // setRaceModify({...raceModify,...newState});
+
+        newState.strenght = stats.strenght = 10 ;
+        newState.consituition = stats.consituition = 8;
+        newState.dexterity = stats.dexterity = 12 ;
+        newState.intelligence = stats.intelligence = 12 ;
+        newState.winsdom = stats.winsdom = 10 ;
+        newState.charisma = stats.charisma = 10;
+        setStats({...stats, newState});
+
 
         setRace("elf");
       } else if ( value === 48 ) {
   // HUMAN
-
+  newState.strenght = stats.strenght = 10 ;
+  newState.consituition = stats.consituition = 10;
+  newState.dexterity = stats.dexterity = 10 ;
+  newState.intelligence = stats.intelligence = 10 ;
+  newState.winsdom = stats.winsdom = 10 ;
+  newState.charisma = stats.charisma = 10;
+  setStats({...stats, newState});
 
         setRace("human");
       } else if ( value === 64) {
   // GNOME
-        newState.consituition = raceModify.consituition = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.consituition = raceModify.consituition = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.charisma = raceModify.charisma = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.charisma = raceModify.charisma = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.strenght = raceModify.strenght = -2;
-        setRaceModify({...raceModify,...newState});
+        // newState.strenght = raceModify.strenght = -2;
+        // setRaceModify({...raceModify,...newState});
+
+
+        newState.strenght = stats.strenght = 8 ;
+        newState.consituition = stats.consituition = 12;
+        newState.dexterity = stats.dexterity = 10 ;
+        newState.intelligence = stats.intelligence = 10 ;
+        newState.winsdom = stats.winsdom = 10 ;
+        newState.charisma = stats.charisma = 12;
+        setStats({...stats, newState});
 
         setRace("gnome")
       } else if ( value === 80) {
         // HALF OGRE - button selet
-
+        newState.strenght = stats.strenght = 10 ;
+        newState.consituition = stats.consituition = 10;
+        newState.dexterity = stats.dexterity = 10 ;
+        newState.intelligence = stats.intelligence = 10 ;
+        newState.winsdom = stats.winsdom = 10 ;
+        newState.charisma = stats.charisma = 10;
+        setStats({...stats, newState});
         
         setRace("halfOgre")
       } else if (value === 96) {
+        newState.strenght = stats.strenght = 10 ;
+        newState.consituition = stats.consituition = 10;
+        newState.dexterity = stats.dexterity = 10 ;
+        newState.intelligence = stats.intelligence = 10 ;
+        newState.winsdom = stats.winsdom = 10 ;
+        newState.charisma = stats.charisma = 10;
+        setStats({...stats, newState});
         // Button select
         setRace('halfElf');
       } else {
         // DWARF - defoult
-        newState.consituition = raceModify.consituition = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.consituition = raceModify.consituition = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.charisma = raceModify.charisma = 2;
-        setRaceModify({...raceModify, ...newState});
+        // newState.charisma = raceModify.charisma = 2;
+        // setRaceModify({...raceModify, ...newState});
 
-        newState.strenght = raceModify.strenght = -2;
-        setRaceModify({...raceModify,...newState});
+        // newState.strenght = raceModify.strenght = -2;
+        // setRaceModify({...raceModify,...newState});
+
+
+        newState.strenght = stats.strenght = 10 ;
+        newState.consituition = stats.consituition = 12;
+        newState.dexterity = stats.dexterity = 10 ;
+        newState.intelligence = stats.intelligence = 10 ;
+        newState.winsdom = stats.winsdom = 12 ;
+        newState.charisma = stats.charisma = 8;
+        setStats({...stats, newState});
+
         setRace('dwarf');
       }
     } 

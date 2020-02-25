@@ -8,6 +8,7 @@ import { statContext } from '../Store';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import ReactDOM from 'react-dom'
+import { Button } from '@material-ui/core';
 
 
 function Feature (props) {
@@ -28,21 +29,17 @@ function handleNewFeatChange(event)  {
 }
 
 function handleNewFeat(e) {
-    var count;
     e.preventDefault();
     if (newFeat === '') return;
     setFeats([
-        ...feats, 
-        {id: Date.now() , 
-        text: newFeat}]);
-    e.target.reset();
+        ...feats,  {id: Date.now() , text: newFeat}]);
+    //   e.target.reset(); problem z tym, że nie jest funkcją
 }
 
 function removeFeat (id) {
     setFeats(feats.filter((feats) => feats.id != id))
 }
 
-// Z JAKIEGOŚ POWODU SKACZE DO GÓRY STRONY
     return (
         <div className="feats_container">
             <h1>Add Feats</h1>
@@ -51,6 +48,12 @@ function removeFeat (id) {
                 placeholder="Add feat..."
                 type="text"
                 onChange = {(event) => handleNewFeatChange(event)} />
+                <Button
+                size="small"
+                variant="contained"
+                onClick = {handleNewFeat}>
+                    ADD FEAT
+                </Button>
                 <ul>
                     {feats.map((feats) => (
                        <li 
@@ -58,10 +61,12 @@ function removeFeat (id) {
                        key={feats.id}> 
                        {feats.text} 
 
-                       <a
-                       href="#"
+                       <Button
+                       size="small"
+                       variant="contained"
+                    //    href="#"
                        onClick={() => removeFeat(feats.id)}
-                       > XXX </a>
+                       > XXX </Button>
 
                        </li> 
                     ))}
@@ -75,10 +80,10 @@ function removeFeat (id) {
 export default Feature;
 
 
-// Skills, żeby pobierały się wartości z pól obok i dodawały w ostatnim oknie (automatiko)
+// Skills, żeby pobierały się wartości z pól obok i dodawały w ostatnim oknie (automatiko) (nasłuchiwanie elementu?)
+// ---  
+// W rasach dodawanie do wartości stats a nie tworzenie nowego modyfikatora
 // ---
-// Buttons w statach przy rasach
-// ----
-// Stats warunki dziwnie działaja
+// Oddzielne dodawanie fetaów (których nie da się usunąć przy wyborze rasy)
 // ---
-// Skakanie strony do który przy usuwaniu fetów
+// Zbędny raceModify - zamieniony na staty

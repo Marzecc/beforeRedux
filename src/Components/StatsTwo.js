@@ -21,33 +21,17 @@
 
     // modyfikator powinien być pobierany/ obliczany na bierząco! "get.modify" - nie trzymać go
 
+    
+
+
     const modifyValue = (field) => {
       let newState = {};
-
-      if (stats[field] >= 8 && stats[field] < 10) {
-        newState[field] = modify[field] = -1;
-        setModify({...modify, ...newState});
-      }
-      else if (stats[field] >= 12 && stats[field] < 14) {
+      if (stats[field] >= 12 && stats[field] <= 14 ) {
         newState[field] = modify[field] = 1;
         setModify({...modify, ...newState});
-
-      }  else if ( stats[field] >= 14 && stats[field] < 16) {
-     
-        newState[field] = modify[field] = 2;
-        setModify({...modify, ...newState});
-
-      } else if (stats[field] >= 16 && stats[field] < 18) {
-     
-        newState[field] = modify[field] = 3;
-        setModify({...modify, ...newState});
-
-      } else if (stats[field] > 17){
-
-        newState[field] = modify[field] = 4;
-        setModify({...modify, ...newState});
-
+        console.log(modify);
       }
+      
     }
 // Dokończyć warunki + / -
 
@@ -57,27 +41,31 @@
     if (stats[field] > 4 ) { 
     newState[field] = stats[field] - 1;
     setStats({...stats, ...newState});
-
     setPoints(points+1);
+    modifyValue(field);
     } else {
       return;
     }
-    modifyValue(field);
   }
 
   const riseStat = (field) => {
-    modifyValue(field);
     let newState = {};
     if (stats[field] < 18 && points > 0) {
-    newState[field] = stats[field] + 1;
+    newState[field] = stats[field] += 1 ;
     setStats({...stats, ...newState});
     setPoints(points-1);
-   
+    console.log(stats[field]);
+    modifyValue(field);
+ 
+      
+
+    } else if (stats[field] === 18 ){
+      return
     } else {
       return
     }
-    console.log(newState);    
-  
+    
+   
   }
 
 
