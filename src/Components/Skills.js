@@ -8,16 +8,51 @@ import Stats, { modifyContext } from '../Store';
 import { statContext } from '../Store';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
+import {skillsCheckContext} from '../Store';
+
+import { withStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Favorite from '@material-ui/icons/Favorite';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 function Skills (props) {
     const [ stats, setStats ] = useContext(statContext);
     const [ modify, setModify] = useContext(modifyContext);
+    const [skillsCheck, setSkillCheck] = useContext(skillsCheckContext)
 
 // const InputsHandler = (field) => {
 //     reutrn (
 
 //     )
 // }
+const GreenCheckbox = withStyles({
+    root: {
+      color: green[1000],
+      '&$checked': {
+        color: green[1000],
+      },
+    },
+    checked: {},
+  })(props => <Checkbox color="default" {...props} />);
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: 200,
+      },
+    },
+  }));
+
+  
 var vertical = {
 
   justifyContent: "center",
@@ -36,6 +71,11 @@ let acrobaticRankChange = (event) => {
 let acrobaticMics;
 let acrobaticTotal = acrobaticRank + acrobaticMics + modify.dexterity;
 
+const boxChecked = () => {
+    if (skillsCheck.acrobatic === true ) {
+        console.log("dupa")
+    }
+}
 
 
 var colorWhite = {
@@ -66,11 +106,21 @@ var colorWhite = {
                 <tr>
                
                 <td style={vertical}>
-                <input type="checkbox" 
+                {/* <input type="checkbox" 
                 name="acrobatic" 
+                checked = {skillsCheck.acrobatic}
                 > 
                 </input>
-                <label for="acrobatic" style= {colorWhite}> Acrobatic (DEX) </label> 
+                <label for="acrobatic" style= {colorWhite}> Acrobatic (DEX) </label>  */}
+                 <FormControlLabel
+        control={
+          <GreenCheckbox
+          name="acrobatic" 
+          checked = {skillsCheck.acrobatic}
+          />
+        }
+        label="Acrobatic"
+      />
                 </td>
 
                 <td> 
@@ -89,6 +139,7 @@ var colorWhite = {
                min="0"
                max="10"
                value= {acrobaticRank}
+               disabled= {!skillsCheck.acrobatic}
                onChange= {(event) => acrobaticRankChange(event)}
 
                
@@ -101,6 +152,7 @@ var colorWhite = {
                type="number"
                min="0"
                max="10"
+               disabled= {!skillsCheck.acrobatic}
                value={acrobaticMics}
             //    onChange={console.log(acrobaticTotal)}
 

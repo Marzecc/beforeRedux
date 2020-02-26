@@ -6,6 +6,7 @@ import {createContext} from 'react';
 import {useContext} from 'react';
 import SliderRace from './Components/SliderRace.js';
 import Class from './Components/Class.js';
+import Skills from './Components/Skills.js';
 
 // Statystyki
 export const statContext = React.createContext({
@@ -39,6 +40,44 @@ export const raceModifyContext = React.createContext({
 
 })
 
+// Skills postaci 
+export const skillsCheckContext = React.createContext({
+  acrobatic: false,
+  appraise: false,
+  bluff: false,
+  climb: false,
+  craft: false,
+  diplomacy: false,
+  disableDevice:false,
+  disguice:false,
+  escapeArtist:false,
+  fly:false,
+  handleAnimal:false,
+  heal:false,
+  intimidate:false,
+  knowledgeArcana:false,
+  knowledgeDungeoneering:false,
+  knowledgeGeography:false,
+  knowledgeHistory:false,
+  knowledgeLocal:false,
+  knowledgeNature:false,
+  knowledgeNobility:false,
+  knowledgePlanes:false,
+  knowledgeReligion:false,
+  linguistics:false,
+  perception:false,
+  perform:false,
+  profession:false,
+  ride:false,
+  senseMotice:false,
+  sleightOfHand:false,
+  spellcraft:false,
+  stealth:false,
+  survival:false,
+  swim:false,
+  useMagicDevice:false,
+})
+
 // Rasa postaci 
 export const raceContext = React.createContext("");
 // Featsy, które przekazuje się na poziomie wybierania klasy i rasy
@@ -48,6 +87,7 @@ export const classContext = React.createContext("");
 
 
 const Store = ({children}) => {
+  // Statystyki
     const [ stats, setStats ] = useState({
       
       
@@ -63,7 +103,7 @@ const Store = ({children}) => {
 
 
     const [modify, setModify] = useState({
-
+// Modyfikator
         strenght: 0,
         consituition: 0,
         dexterity: 0,
@@ -74,7 +114,7 @@ const Store = ({children}) => {
 
 
     const [raceModify, setRaceModify] = useState({
-
+// Modyfikator z rasy - niepotrzebny
         strenght: 0,
         consituition: 0,
         dexterity: 0,
@@ -83,11 +123,51 @@ const Store = ({children}) => {
         charisma: 0
       
       });
-
+// Rasa
       const [race, setRace] = useState("");
+      // Oba potrzebne do tworzenia featwów
       const [newFeat, setNewFeat] = useState('');
       const [feats, setFeats] = useState([]);
+      // klasa postaci
       const [characterClass, setCharacterClass] = useState("");
+
+// Dostępne skills dla postaci
+   const [skillsCheck, setSkillsCheck] = React.useState({
+        acrobatic: false,
+        appraise: false,
+        bluff: false,
+        climb: false,
+        craft: false,
+        diplomacy: false,
+        disableDevice:false,
+        disguice:false,
+        escapeArtist:false,
+        fly:false,
+        handleAnimal:false,
+        heal:false,
+        intimidate:false,
+        knowledgeArcana:false,
+        knowledgeDungeoneering:false,
+        knowledgeGeography:false,
+        knowledgeHistory:false,
+        knowledgeLocal:false,
+        knowledgeNature:false,
+        knowledgeNobility:false,
+        knowledgePlanes:false,
+        knowledgeReligion:false,
+        linguistics:false,
+        perception:false,
+        perform:false,
+        profession:false,
+        ride:false,
+        senseMotice:false,
+        sleightOfHand:false,
+        spellcraft:false,
+        stealth:false,
+        survival:false,
+        swim:false,
+        useMagicDevice:false,
+      })
 
       return (
         <statContext.Provider value={[stats, setStats]}>
@@ -97,7 +177,9 @@ const Store = ({children}) => {
                 <newFeatContext.Provider value={[newFeat, setNewFeat]}>
                 <raceModifyContext.Provider value ={[raceModify, setRaceModify]}>
                   <classContext.Provider value={[characterClass, setCharacterClass]}>
+                    <skillsCheckContext.Provider value={[skillsCheck, setSkillsCheck]}>
                         {children}
+                      </skillsCheckContext.Provider>
                   </classContext.Provider>
                   </raceModifyContext.Provider>
                 </newFeatContext.Provider>

@@ -19,11 +19,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { blueGrey } from '@material-ui/core/colors';
 import barbarian2 from './Img/barbarian2.png';
 import {newFeatContext, featsContext, raceModifyContext} from '../Store';
+import {skillsCheckContext} from '../Store';
+
 
 function Class (props)  {
   const [newFeat, setNewFeat] = useContext(newFeatContext);
   const [feats, setFeats] = useContext(featsContext);
-  const [characterClass, setCharacterClass] = useContext(classContext)
+  const [characterClass, setCharacterClass] = useContext(classContext);
+  const [skillsCheck, setSkillsCheck] = useContext(skillsCheckContext);
+
 
         const marks = [
           {
@@ -168,9 +172,25 @@ const wizard = () => {
 }
 
       const changeContainer = (event, value) => {
+        let newState = {};
           if (value === 0) {
+
             setCharacterClass("barbarian");
             setFeats ([...feats, {id: 1, text: "BARBARIAN"}]);
+
+              newState.acrobatic = skillsCheck.acrobatic = true;
+              newState.climb = skillsCheck.climb = true;
+              newState.craft = skillsCheck.craft = true;
+              newState.handleAnimals = skillsCheck.handleAnimals = true;
+              newState.intimidate = skillsCheck.intimidate =true;
+              newState.knowledgeNautre = skillsCheck.knowledgeNautre = true;
+              newState.perception = skillsCheck.perception = true;
+              newState.ride = skillsCheck.ride= true;
+              newState.survival = skillsCheck.survival = true;
+              newState.swim = skillsCheck.swim = true;
+              setSkillsCheck({...skillsCheck, ...newState});
+
+
           } else if ( value === 11) {
             setCharacterClass("bard")
           } else if (value === 22) {

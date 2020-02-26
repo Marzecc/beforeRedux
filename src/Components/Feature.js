@@ -9,10 +9,12 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import ReactDOM from 'react-dom'
 import { Button } from '@material-ui/core';
+import {skillsCheckContext} from '../Store';
 
 
 function Feature (props) {
 const [newFeat, setNewFeat] = useContext(newFeatContext);
+const [skillsCheck, setSkillsCheck] = useContext(skillsCheckContext);
 
 const [feats, setFeats] = useContext(featsContext);
 // Jeśli rasa / klasa wpływa na feats będzie można je zdefijować tutaj
@@ -33,7 +35,9 @@ function handleNewFeat(e) {
     if (newFeat === '') return;
     setFeats([
         ...feats,  {id: Date.now() , text: newFeat}]);
-    //   e.target.reset(); problem z tym, że nie jest funkcją
+      e.target.reset(); 
+
+      
 }
 
 function removeFeat (id) {
@@ -61,12 +65,12 @@ function removeFeat (id) {
                        key={feats.id}> 
                        {feats.text} 
 
-                       <Button
+                       <a
                        size="small"
                        variant="contained"
                     //    href="#"
                        onClick={() => removeFeat(feats.id)}
-                       > XXX </Button>
+                       > XXX </a>
 
                        </li> 
                     ))}
@@ -86,4 +90,3 @@ export default Feature;
 // ---
 // Oddzielne dodawanie fetaów (których nie da się usunąć przy wyborze rasy)
 // ---
-// Zbędny raceModify - zamieniony na staty
