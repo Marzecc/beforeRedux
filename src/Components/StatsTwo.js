@@ -22,7 +22,7 @@
     // modyfikator powinien być pobierany/ obliczany na bierząco! "get.modify" - nie trzymać go
 
     
-
+// dawdawd
 
     const modifyValue = (field) => {
       let newState = {};
