@@ -103,24 +103,21 @@ var colorWhite = {
                     -- TOTAL BONUS --
                     </td>
                     </tr>
+
+
+{/* ACROBATIC */}
                 <tr>
-               
                 <td style={vertical}>
-                {/* <input type="checkbox" 
-                name="acrobatic" 
-                checked = {skillsCheck.acrobatic}
-                > 
-                </input>
-                <label for="acrobatic" style= {colorWhite}> Acrobatic (DEX) </label>  */}
+           
                  <FormControlLabel
-        control={
-          <GreenCheckbox
-          name="acrobatic" 
-          checked = {skillsCheck.acrobatic}
-          />
-        }
-        label="Acrobatic"
-      />
+                      control={
+                        <GreenCheckbox
+                        name="acrobatic" 
+                        checked = {skillsCheck.acrobatic}
+                        />
+                      }
+                      label="Acrobatic"
+                    />
                 </td>
 
                 <td> 
@@ -160,15 +157,184 @@ var colorWhite = {
 
              </td>
 
-           <td>
+           <td style={vertical}>
                <div>
                  {acrobaticTotal}
                  </div>
            </td>
             </tr>
-            </tbody>
+           
+{/* APPRAISE */}
+                <tr >
+                        
+                    <td style={vertical}>
+                        <FormControlLabel
+                          control={
+                            <GreenCheckbox
+                            name="appraise" 
+                            checked = {skillsCheck.appraise}
+                            />
+                          }
+                          label="Appraise"
+                        />  
+                    </td>
+
+                    <td >
+                          <div style={vertical}>
+                          {/* Modyfikator z stats */}
+                          {modify.dexterity}
+                          
+                          </div>
+                    </td >
+
+                    <td style={vertical}>
+                          <input 
+                                    type="number"
+                                    min="0"
+                                    max="10"
+                                    value= {acrobaticRank}
+                                    disabled= {!skillsCheck.appraise}
+                                    onChange= {(event) => acrobaticRankChange(event)}
+
+                          
+                          ></input>
+                    </td >
+
+                    <td style={vertical}>
+                     {/* Modyfikator z MIC */}
+                          <input  
+                                    type="number"
+                                    min="0"
+                                    max="10"
+                                    disabled= {!skillsCheck.appraise}
+                                    value={acrobaticMics}
+                                  //    onChange={console.log(acrobaticTotal)}
+
+                          ></input>
+                    </td>
+                    <td style={vertical}>
+                            <div>
+                        {acrobaticTotal}
+                            </div>
+                    </td>
+                    </tr>
+           
+{/* BLUFF */}
+ <tr >
+                        
+                    <td style={vertical}>
+                        <FormControlLabel
+                          control={
+                            <GreenCheckbox
+                            name="appraise" 
+                            checked = {skillsCheck.bluff}
+                            />
+                          }
+                          label="Bluff"
+                        />  
+                    </td>
+
+                    <td >
+                          <div style={vertical}>
+                          {/* Modyfikator z stats */}
+                          {modify.dexterity}
+                          
+                          </div>
+                    </td >
+
+                    <td style={vertical}>
+                          <input 
+                                    type="number"
+                                    min="0"
+                                    max="10"
+                                    value= {acrobaticRank}
+                                    disabled= {!skillsCheck.bluff}
+                                    onChange= {(event) => acrobaticRankChange(event)}
+
+                          
+                          ></input>
+                    </td >
+
+                    <td style={vertical}>
+                     {/* Modyfikator z MIC */}
+                          <input  
+                                    type="number"
+                                    min="0"
+                                    max="10"
+                                    disabled= {!skillsCheck.bluff}
+                                    value={acrobaticMics}
+                                  //    onChange={console.log(acrobaticTotal)}
+
+                          ></input>
+                    </td>
+                    <td style={vertical}>
+                            <div>
+                        {acrobaticTotal}
+                            </div>
+                    </td>
+                    </tr>
+{/* CLIMB  */}
+                    <tr >
+                        
+                        <td style={vertical}>
+                            <FormControlLabel
+                              control={
+                                <GreenCheckbox
+                                name="appraise" 
+                                checked = {skillsCheck.climb}
+                                />
+                              }
+                              label="Climb"
+                            />  
+                        </td>
+    
+                        <td >
+                              <div style={vertical}>
+                              {/* Modyfikator z stats */}
+                              {modify.dexterity}
+                              
+                              </div>
+                        </td >
+    
+                        <td style={vertical}>
+                              <input 
+                                        type="number"
+                                        min="0"
+                                        max="10"
+                                        value= {acrobaticRank}
+                                        disabled= {!skillsCheck.climb}
+                                        onChange= {(event) => acrobaticRankChange(event)}
+    
+                              
+                              ></input>
+                        </td >
+    
+                        <td style={vertical}>
+                         {/* Modyfikator z MIC */}
+                              <input  
+                                        type="number"
+                                        min="0"
+                                        max="10"
+                                        disabled= {!skillsCheck.climb}
+                                        value={acrobaticMics}
+                                      //    onChange={console.log(acrobaticTotal)}
+    
+                              ></input>
+                        </td>
+                        <td style={vertical}>
+                                <div>
+                            {acrobaticTotal}
+                                </div>
+                        </td>
+                        </tr>
+
+
+                    </tbody>
             </table>
             < br/>
+            
+
+
             
             <input type="checkbox" 
             name="1" 
