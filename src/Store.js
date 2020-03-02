@@ -79,13 +79,94 @@ export const skillsCheckContext = React.createContext({
   useMagicDevice:false,
 })
 
+
+export const skillsRankContext = React.createContext({
+  acrobatic: 1,
+  appraise: 1,
+  bluff: 1,
+  climb: 1,
+  craft: 1,
+  diplomacy: 1,
+  disableDevice:1,
+  disguice:1,
+  escapeArtist:1,
+  fly:1,
+  handleAnimal:1,
+  heal:1,
+  intimidate:1,
+  knowledgeAll:1,
+  knowledgeArcana:1,
+  knowledgeDungeoneering:1,
+  knowledgeGeography:1,
+  knowledgeHistory:1,
+  knowledgeLocal:1,
+  knowledgeNature:1,
+  knowledgeNobility:1,
+  knowledgePlanes:1,
+  knowledgeReligion:1,
+  linguistics:1,
+  perception:1,
+  perform:1,
+  profession:1,
+  ride:1,
+  senseMotive:1,
+  sleightOfHand:1,
+  spellcraft:1,
+  stealth:1,
+  survival:1,
+  swim:1,
+  useMagicDevice:1,
+})
+
+export const classSkillsContext = React.createContext({
+  classes: {
+  barbarian: {
+    skills:
+    ['acrobatic',
+    'climb',
+    'craft',
+    'handleAnimal',
+    'intimidate',
+    'knowledgeNature',
+    'perception',
+    'ride',
+    'survival',
+    'swim',
+    ]}
+
+    ,bard: {
+      skills:
+      ['acrobatic',
+      'bluff',
+      'appraise',
+      'climb',
+      'craft',
+      'diplomacy',
+      'disguice',
+      'escapeArtist',
+      'intimidate',
+      'knowledgeAll',
+      'linguistics',
+      'perception',
+      'perform',
+      'profession',
+      'senseMotive',
+      'sleightOfHand',
+      'spellcraft',
+      'stealth',
+      'useMagicDevice',
+      ]
+    }
+  }
+  });
+
 // Rasa postaci 
 export const raceContext = React.createContext("");
 // Featsy, które przekazuje się na poziomie wybierania klasy i rasy
 export const newFeatContext = React.createContext('');
 export const featsContext = React.createContext([]);
 export const classContext = React.createContext("");
-
+export const rankPointsLeftContext = React.createContext();
 
 const Store = ({children}) => {
   // Statystyki
@@ -131,6 +212,7 @@ const Store = ({children}) => {
       const [feats, setFeats] = useState([]);
       // klasa postaci
       const [characterClass, setCharacterClass] = useState("");
+      const [rankPointsLeft, setRankPointsLeft] = useState(0);
 
 // Dostępne skills dla postaci
    const [skillsCheck, setSkillsCheck] = React.useState({
@@ -171,6 +253,87 @@ const Store = ({children}) => {
         useMagicDevice:false,
       })
 
+      const [classSkills, setClassSkills] = React.useState({
+        
+          barbarian: 
+          ['acrobatic',
+            'climb',
+            'craft',
+            'handleAnimal',
+            'intimidate',
+            'knowledgeNature',
+            'perception',
+            'ride',
+            'survival',
+            'swim',
+            ]
+          
+        
+            ,bard: 
+              
+              ['acrobatic',
+              'bluff',
+              'appraise',
+              'climb',
+              'craft',
+              'diplomacy',
+              'disguice',
+              'escapeArtist',
+              'intimidate',
+              'knowledgeAll',
+              'linguistics',
+              'perception',
+              'perform',
+              'profession',
+              'senseMotive',
+              'sleightOfHand',
+              'spellcraft',
+              'stealth',
+              'useMagicDevice',
+              ]
+            
+          
+      })
+
+
+    const [skillsRank, setSkillsRank] = React.useState({
+        acrobatic: 1,
+        appraise: 1,
+        bluff: 1,
+        climb: 1,
+        craft: 1,
+        diplomacy: 1,
+        disableDevice:1,
+        disguice:1,
+        escapeArtist:1,
+        fly:1,
+        handleAnimal:1,
+        heal:1,
+        intimidate:1,
+        knowledgeAll:1,
+        knowledgeArcana:1,
+        knowledgeDungeoneering:1,
+        knowledgeGeography:1,
+        knowledgeHistory:1,
+        knowledgeLocal:1,
+        knowledgeNature:1,
+        knowledgeNobility:1,
+        knowledgePlanes:1,
+        knowledgeReligion:1,
+        linguistics:1,
+        perception:1,
+        perform:1,
+        profession:1,
+        ride:1,
+        senseMotive:1,
+        sleightOfHand:1,
+        spellcraft:1,
+        stealth:1,
+        survival:1,
+        swim:1,
+        useMagicDevice:1,
+      })
+
       return (
         <statContext.Provider value={[stats, setStats]}>
           <raceContext.Provider value={[race,setRace]}>
@@ -178,11 +341,19 @@ const Store = ({children}) => {
              <featsContext.Provider value ={[feats, setFeats]}>
                 <newFeatContext.Provider value={[newFeat, setNewFeat]}>
                 <raceModifyContext.Provider value ={[raceModify, setRaceModify]}>
+              
                   <classContext.Provider value={[characterClass, setCharacterClass]}>
                     <skillsCheckContext.Provider value={[skillsCheck, setSkillsCheck]}>
+                      <skillsRankContext.Provider value ={[skillsRank, setSkillsRank]}>
+                        <classSkillsContext.Provider value={[classSkills, setClassSkills]}>
+                          <rankPointsLeftContext.Provider value ={[rankPointsLeft, setRankPointsLeft]}> 
                         {children}
+                        </rankPointsLeftContext.Provider>
+                        </classSkillsContext.Provider>
+                        </skillsRankContext.Provider>
                       </skillsCheckContext.Provider>
                   </classContext.Provider>
+                 
                   </raceModifyContext.Provider>
                 </newFeatContext.Provider>
                 </featsContext.Provider>

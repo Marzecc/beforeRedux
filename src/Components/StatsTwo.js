@@ -26,11 +26,43 @@
 
     const modifyValue = (field) => {
       let newState = {};
-      if (stats[field] >= 12 && stats[field] <= 14 ) {
-        newState[field] = modify[field] = 1;
+
+      if (stats[field] === 4) {
+        newState[field] = -4;
+        setModify({...modify, ...newState});
+      
+     } else if (stats[field] >= 4 && stats[field] <6) {
+        newState[field] =  -3;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 7 && stats[field] <8) {
+        newState[field] =  -2;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 8 && stats[field] <=9) {
+        newState[field] =  -1;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 10 && stats[field] <11) {
+        newState[field] =  0;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 12 && stats[field] < 14 ) {
+        newState[field] =  1;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 14 && stats[field] < 16) {
+        newState[field] =  2;
+        setModify({...modify, ...newState});
+
+      } else if (stats[field] >= 16 && stats[field] < 18) {
+        newState[field] =  3;
         setModify({...modify, ...newState});
         console.log(modify);
-      }
+      } else if (stats[field] === 18) {
+        newState[field] =  4;
+        setModify({...modify, ...newState});
+      } 
       
     }
 // Dokończyć warunki + / -
@@ -39,7 +71,7 @@
     
     let newState = {};
     if (stats[field] > 4 ) { 
-    newState[field] = stats[field] - 1;
+    newState[field] = stats[field] -= 1;
     setStats({...stats, ...newState});
     setPoints(points+1);
     modifyValue(field);
@@ -54,7 +86,6 @@
     newState[field] = stats[field] += 1 ;
     setStats({...stats, ...newState});
     setPoints(points-1);
-    console.log(stats[field]);
     modifyValue(field);
  
       
@@ -133,4 +164,3 @@ var vertical = {
   export default StatsTwo;
 
   //  można wywołać ten sam komponent jak funkcje z mienną wartością - wystarczy, że będzie od niej zależna (filed)
-  // niezmienialne jest 30 więc można ją określić zwykłą zmienną

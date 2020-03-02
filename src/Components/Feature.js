@@ -90,4 +90,4 @@ export default Feature;
 // ---
 // Oddzielne dodawanie fetaów (których nie da się usunąć przy wyborze rasy)
 // ---
-// Przypisywanie skills
+// Pokazywać te, które są w stanie "barbarian", obiekt w obiekcie 

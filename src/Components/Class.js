@@ -11,6 +11,7 @@ import { classContext } from '../Store';
 import {css} from 'emotion';
 import styled from '@emotion/styled';
 import { jsx } from '@emotion/core';
+import {classSkillsContext} from '../Store';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -21,6 +22,8 @@ import barbarian2 from './Img/barbarian2.png';
 import bard1 from './Img/bard1.png';
 import {newFeatContext, featsContext, raceModifyContext} from '../Store';
 import {skillsCheckContext} from '../Store';
+import {rankPointsLeftContext} from '../Store';
+
 
 
 function Class (props)  {
@@ -28,6 +31,10 @@ function Class (props)  {
   const [feats, setFeats] = useContext(featsContext);
   const [characterClass, setCharacterClass] = useContext(classContext);
   const [skillsCheck, setSkillsCheck] = useContext(skillsCheckContext);
+  const [ modify, setModify] = useContext(modifyContext);
+  const [classSkills, setClassSkills] = useContext(classSkillsContext);
+  const [rankPointsLeft, setRankPointsLeft] = useContext(rankPointsLeftContext);
+
 
 
         const marks = [
@@ -134,7 +141,7 @@ const barbarian = () => {
       <p>
       The barbarian’s class skills are Acrobatics (Dex), Climb (Str), Craft (Int), Handle Animal (Cha), Intimidate (Cha), Knowledge (nature) (Int), Perception (Wis), Ride (Dex), Survival (Wis), and Swim (Str). Skill Ranks per Level: 4 + Int modifier.
       </p>
-      <p><b>Skill rank per Level: </b>  4 + Int modifier.
+      <p><b> Skill rank per Level: </b>  4 + Int. modifier <b>({modify.intelligence})</b>.
  </p>
 
      
@@ -188,7 +195,7 @@ const bard = () => {
 
       <p>
       The bard’s class skills are Acrobatics (Dex), Appraise (Int), Bluff (Cha), Climb (Str), Craft (Int), Diplomacy (Cha), Disguise (Cha), Escape Artist (Dex), Intimidate (Cha), Knowledge (all) (Int), Linguistics (Int), Perception (Wis), Perform (Cha), Profession (Wis), Sense Motive (Wis), Sleight of Hand (Dex), Spellcraft (Int), Stealth (Dex), and Use Magic Device (Cha).       </p>
-      <p><b> Skill rank per Level: </b>  6 + Int modifier. </p>
+      <p><b> Skill rank per Level: </b>  6 +  Int. modifier <b>({modify.intelligence})</b>. </p>
 
      
      
@@ -230,45 +237,48 @@ const wizard = () => {
           if (value === 0) {
 
             setCharacterClass("barbarian");
-            setFeats ([...feats, {id: 1, text: "BARBARIAN"}]);
+
+            setClassSkills(barbarian);
+            
+            setRankPointsLeft( 4 + modify.intelligence);
 
             
-
-              newState.acrobatic = skillsCheck.acrobatic = true;
-              newState.appraise = skillsCheck.appraise = false;
-              newState.bluff = setSkillsCheck.bluff = false;
-              newState.climb = skillsCheck.climb = true;
-              newState.craft = skillsCheck.craft = true;
-              newState.diplomacy = setSkillsCheck.diplomacy = false;
-              newState.disableDevice = setSkillsCheck.disableDevice = false;
-              newState.disguice = setSkillsCheck.disguice = false;
-              newState.escapeArtist = setSkillsCheck.escapeArtist = false;
-              newState.fly = setSkillsCheck.fly = false;
-              newState.handleAnimal = setSkillsCheck.handleAnimal = false;
-              newState.heal = setSkillsCheck.heal = false;
-              newState.intimidate = skillsCheck.intimidate =true;
-              newState.knowledgeAll = setSkillsCheck.knowledgeAll = false;
-              newState.knowledgeArcana = setSkillsCheck.knowledgeArcana = false;
-              newState.knowledgeDungeoneering = setSkillsCheck.knowledgeDungeoneering = false;
-              newState.knowledgeGeography = setSkillsCheck.knowledgeGeography = false;
-              newState.knowledgeHisotry = setSkillsCheck.knowledgeHisotry = false;
-              newState.knowledgeLocal = setSkillsCheck.knowledgeLocal = false;
-              newState.knowledgeNautre = skillsCheck.knowledgeNautre = true;
-              newState.knowledgeNobility = skillsCheck.knowledgeNobility = false;
-              newState.knowledgePlanes = skillsCheck.knowledgePlanes =false;
-              newState.knowledgeReligion = skillsCheck.knowledgeReligion = false;
-              newState.linguistics = skillsCheck.linguistics = false;
-              newState.perception = skillsCheck.perception = true;
-              newState.perform = skillsCheck.perform = false;
-              newState.profession = skillsCheck.perform = false;
-              newState.ride = skillsCheck.ride= true;
-              newState.senseMotive = skillsCheck.ride = false;
-              newState.sleightOfHand = skillsCheck.sleightOfHand = false;
-              newState.spellcraft = skillsCheck.spellcraft = false;
-              newState.stealth = skillsCheck.stealth = false;
-              newState.survival = skillsCheck.survival = true;
-              newState.swim = skillsCheck.swim = true;
-              newState.useMagicDevice = setSkillsCheck.useMagicDevice = false;
+              // Można wywalić skillsCheck wszędzie
+              newState.acrobatic =  true;
+              newState.appraise =  false;
+              newState.bluff =  false;
+              newState.climb =  true;
+              newState.craft =  true;
+              newState.diplomacy =  false;
+              newState.disableDevice =  false;
+              newState.disguice =  false;
+              newState.escapeArtist =  false;
+              newState.fly = false;
+              newState.handleAnimal = false;
+              newState.heal =  false;
+              newState.intimidate = true;
+              newState.knowledgeAll = false;
+              newState.knowledgeArcana =  false;
+              newState.knowledgeDungeoneering = false;
+              newState.knowledgeGeography = false;
+              newState.knowledgeHisotry =  false;
+              newState.knowledgeLocal =  false;
+              newState.knowledgeNautre =  true;
+              newState.knowledgeNobility =  false;
+              newState.knowledgePlanes =  false;
+              newState.knowledgeReligion =  false;
+              newState.linguistics =  false;
+              newState.perception =  true;
+              newState.perform =  false;
+              newState.profession =  false;
+              newState.ride =  true;
+              newState.senseMotive =  false;
+              newState.sleightOfHand =  false;
+              newState.spellcraft =  false;
+              newState.stealth =  false;
+              newState.survival =  true;
+              newState.swim =  true;
+              newState.useMagicDevice = false;
 
     
               setSkillsCheck({...skillsCheck, ...newState});
@@ -280,44 +290,48 @@ const wizard = () => {
             setFeats ([...feats, {id: 1, text: "BARD"}]);
 
 
-            newState.acrobatic = skillsCheck.acrobatic = true;
-            newState.appraise = skillsCheck.appraise = true;
-            newState.bluff = setSkillsCheck.bluff = true;
-            newState.climb = skillsCheck.climb = true;
-            newState.craft = skillsCheck.craft = true;
-            newState.diplomacy = setSkillsCheck.diplomacy = true;
-            newState.disableDevice = setSkillsCheck.disableDevice = false;
-            newState.disguice = setSkillsCheck.disguice = true;
-            newState.escapeArtist = setSkillsCheck.escapeArtist = true;
-            newState.fly = setSkillsCheck.fly = false;
-            newState.handleAnimal = setSkillsCheck.handleAnimal = false;
-            newState.heal = setSkillsCheck.heal = false;
-            newState.intimidate = skillsCheck.intimidate = true;
-            newState.knowledgeAll = setSkillsCheck.knowledgeAll = true;
-            newState.knowledgeArcana = setSkillsCheck.knowledgeArcana = false;
-            newState.knowledgeDungeoneering = setSkillsCheck.knowledgeDungeoneering = false;
-            newState.knowledgeGeography = setSkillsCheck.knowledgeGeography = false;
-            newState.knowledgeHisotry = setSkillsCheck.knowledgeHisotry = false;
-            newState.knowledgeLocal = setSkillsCheck.knowledgeLocal = false;
-            newState.knowledgeNautre = skillsCheck.knowledgeNautre = true;
-            newState.knowledgeNobility = skillsCheck.knowledgeNobility = false;
-            newState.knowledgePlanes = skillsCheck.knowledgePlanes =false;
-            newState.knowledgeReligion = skillsCheck.knowledgeReligion = false;
-            newState.linguistics = skillsCheck.linguistics = true;
-            newState.perception = skillsCheck.perception = true;
-            newState.perform = skillsCheck.perform = true;
-            newState.profession = skillsCheck.perform = true;
-            newState.ride = skillsCheck.ride= false;
-            newState.senseMotive = skillsCheck.ride = true;
-            newState.sleightOfHand = skillsCheck.sleightOfHand = true;
-            newState.spellcraft = skillsCheck.spellcraft = true;
-            newState.stealth = skillsCheck.stealth = true;
-            newState.survival = skillsCheck.survival = false;
-            newState.swim = skillsCheck.swim = false;
-            newState.useMagicDevice = setSkillsCheck.useMagicDevice = true;
+            newState.acrobatic =  true;
+            newState.appraise =  true;
+            newState.bluff =  true;
+            newState.climb =  true;
+            newState.craft =  true;
+            newState.diplomacy =  true;
+            newState.disableDevice = false;
+            newState.disguice =  true;
+            newState.escapeArtist =  true;
+            newState.fly =  false;
+            newState.handleAnimal =  false;
+            newState.heal = false;
+            newState.intimidate =  true;
+            newState.knowledgeAll = true;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  true;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =  true;
+            newState.perception =  true;
+            newState.perform =  true;
+            newState.profession =  true;
+            newState.ride = false;
+            newState.senseMotive =  true;
+            newState.sleightOfHand =  true;
+            newState.spellcraft =  true;
+            newState.stealth =  true;
+            newState.survival =  false;
+            newState.swim =  false;
+            newState.useMagicDevice = true;
 
             setSkillsCheck({...skillsCheck, ...newState});
 
+            console.log(Object.keys(skillsCheck));
+            // for (Object.keys(skillsCheck)) {
+              
+            // }
 
           } else if (value === 22) {
             setCharacterClass('cleric')
@@ -329,7 +343,6 @@ const wizard = () => {
             setCharacterClass('monk')
           } else if (value === 66) {
             setCharacterClass('ranger')
-         
           } else if (value === 77) {
             setCharacterClass('sorccerer')
           } else if (value === 88) {
