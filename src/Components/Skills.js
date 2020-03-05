@@ -85,14 +85,16 @@ var colorWhite = {
 }
 
 
-const changeStatModi = () => {
-  if (skillsCheck[0] === "acrobatic"){
+const changeStatModi = (field) => {
+  if (skillsCheck[field] = true){
     return modify.dexterity;
     
-  } else {
+  } else if (skillsCheck[field] = "bluff"){
     // console.log(modify.dexterity)
-    return "nope"
+    return modify.charisma;
   
+  } else {
+    return "nope"
   }
 }
 
@@ -126,11 +128,12 @@ const riseRankModify = (field) => {
 
 
 const skillsClassDisplay = (field) => {
- 
+
   return (
+
     <div>
       {classSkills[field]}
-    
+
     </div>
     
   )
@@ -144,6 +147,9 @@ const skillsCheckTrue = (field) => {
   if (skillsCheck[field]) {
     
     return (
+
+      
+
       <div style={colorWhite, horizontal} >
 
          <h1 style={colorWhite}> {field}</h1>
@@ -158,7 +164,7 @@ const skillsCheckTrue = (field) => {
           />
 
           <div style={colorWhite}>
-          {changeStatModi()}
+          {changeStatModi(field)}
           </div>
 
 
@@ -214,7 +220,13 @@ const skillsCheckTrue = (field) => {
           {skillsCheckTrue("craft")}
         </div>
         <div>
-          {skillsCheckTrue("craft")}
+          {skillsCheckTrue("diplomacy")}
+        </div>
+        <div>
+          {skillsCheckTrue("diplomacy")}
+        </div>
+        <div>
+          {skillsCheckTrue("diplomacy")}
         </div>
       </div>
 

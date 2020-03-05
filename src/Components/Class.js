@@ -238,7 +238,7 @@ const wizard = () => {
 
             setCharacterClass("barbarian");
 
-            setClassSkills(barbarian);
+            // setClassSkills(barbarian);
             
             setRankPointsLeft( 4 + modify.intelligence);
 
@@ -280,7 +280,7 @@ const wizard = () => {
               newState.swim =  true;
               newState.useMagicDevice = false;
 
-    
+              setClassSkills(barbarian)
               setSkillsCheck({...skillsCheck, ...newState});
 
 
@@ -334,24 +334,408 @@ const wizard = () => {
             // }
 
           } else if (value === 22) {
+
+            newState.acrobatic =  true;
+            newState.appraise =  true;
+            newState.bluff =  true;
+            newState.climb =  true;
+            newState.craft =  true;
+            newState.diplomacy =  true;
+            newState.disableDevice = false;
+            newState.disguice =  true;
+            newState.escapeArtist =  true;
+            newState.fly =  false;
+            newState.handleAnimal =  false;
+            newState.heal = false;
+            newState.intimidate =  true;
+            newState.knowledgeAll = true;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  true;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =  true;
+            newState.perception =  true;
+            newState.perform =  true;
+            newState.profession =  true;
+            newState.ride = false;
+            newState.senseMotive =  true;
+            newState.sleightOfHand =  true;
+            newState.spellcraft =  true;
+            newState.stealth =  true;
+            newState.survival =  false;
+            newState.swim =  false;
+            newState.useMagicDevice = true;
+
+            setSkillsCheck({...skillsCheck, ...newState});
+
+
+
             setCharacterClass('cleric')
           } else if (value === 33) {
+
+            newState.acrobatic =  false;
+            newState.appraise =  true;
+            newState.bluff = false;
+            newState.climb = false;
+            newState.craft =  false;
+            newState.diplomacy =  true;
+            newState.disableDevice = false;
+            newState.disguice =  true;
+            newState.escapeArtist = false;
+            newState.fly =  false;
+            newState.handleAnimal =  false;
+            newState.heal = true;
+            newState.intimidate =  false;
+            newState.knowledgeAll =false;
+            newState.knowledgeArcana = true;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry = true;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  true;
+            newState.knowledgeNobility =  true;
+            newState.knowledgePlanes =  true;
+            newState.knowledgeReligion = true;
+            newState.linguistics =  true;
+            newState.perception =  false;
+            newState.perform =  false;
+            newState.profession =  true;
+            newState.ride = false;
+            newState.senseMotive =  true;
+            newState.sleightOfHand =  false;
+            newState.spellcraft = false;
+            newState.stealth =  false;
+            newState.survival =  false;
+            newState.swim =  false;
+            newState.useMagicDevice = false;
+            setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass('druid')
           } else if (value ===44) {
+
+            newState.acrobatic =  false;
+            newState.appraise =  false;
+            newState.bluff =  false;
+            newState.climb =  true;
+            newState.craft =  true;
+            newState.diplomacy =  false;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.escapeArtist =  false;
+            newState.fly =  true;
+            newState.handleAnimal =  true;
+            newState.heal = true;
+            newState.intimidate =  false;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  true;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  true;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =  false;
+            newState.perception =  true;
+            newState.perform =  false;
+            newState.profession =  true;
+            newState.ride = true;
+            newState.senseMotive =  false;
+            newState.sleightOfHand =  false;
+            newState.spellcraft =  true;
+            newState.stealth =  false;
+            newState.survival =  true;
+            newState.swim = true;
+            newState.useMagicDevice = false;
+            setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass('fighter')
           } else if (value === 55) {
+            
+            newState.acrobatic =  false;
+            newState.appraise =  false;
+            newState.bluff =  false;
+            newState.climb =  true;
+            newState.craft =  true;
+            newState.diplomacy =  false;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.escapeArtist =  false;
+            newState.fly =  false;
+            newState.handleAnimal =  true;
+            newState.heal = false;
+            newState.intimidate =  true;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  true;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  false;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =  false;
+            newState.perception =  false;
+            newState.perform =  false;
+            newState.profession =  true;
+            newState.ride = true;
+            newState.senseMotive =  false;
+            newState.sleightOfHand =  false;
+            newState.spellcraft =  false;
+            newState.stealth =  false;
+            newState.survival =  true;
+            newState.swim =  true;
+            newState.useMagicDevice = false;
+            setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass('monk')
           } else if (value === 66) {
+
+            newState.acrobatic =  true;
+            newState.appraise =  false;
+            newState.bluff =  false;
+            newState.climb =  true;
+            newState.craft =  true;
+            newState.diplomacy =  false;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.escapeArtist =  true;
+            newState.fly =  false;
+            newState.handleAnimal =  false;
+            newState.heal = false;
+            newState.intimidate =  true;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  true;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  false;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =true;
+            newState.linguistics =  false;
+            newState.perception =  true;
+            newState.perform =  true;
+            newState.profession =  false;
+            newState.ride = true;
+            newState.senseMotive =  true;
+            newState.sleightOfHand =  false;
+            newState.spellcraft =  false;
+            newState.stealth =  true;
+            newState.survival =  false;
+            newState.swim =  true;
+            newState.useMagicDevice = false;
+            setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass('ranger')
           } else if (value === 77) {
+
+            newState.acrobatic =  true
+            newState.appraise =  true;
+            newState.bluff =  true;
+            newState.climb =  true;
+            newState.craft = true;
+            newState.diplomacy =  false;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.fly =  false;
+            newState.handleAnimal =  false;
+            newState.heal = false;
+            newState.intimidate =  true;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  true;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  true;
+            newState.knowledgeNautre =  false;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =   true;
+            newState.perception =  true;
+            newState.perform =   true;
+            newState.profession =   true;
+            newState.ride = false;
+            newState.senseMotive =   true;
+            newState.sleightOfHand =   true;
+            newState.spellcraft =  false;
+            newState.stealth =   true;
+            newState.survival =  false;
+            newState.swim =  true;
+            newState.useMagicDevice = true;
+            setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass('sorccerer')
           } else if (value === 88) {
-            setCharacterClass('pallading')
+
+            newState.acrobatic =  false;
+            newState.appraise =  false;
+            newState.bluff =  false;
+            newState.climb =  false;
+            newState.craft =  true;
+            newState.diplomacy =  true;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.escapeArtist =  false;
+            newState.fly =  false;
+            newState.handleAnimal =  true;
+            newState.heal = true;
+            newState.intimidate =  false;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  false;
+            newState.knowledgeNobility = true;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =true;
+            newState.linguistics =  false;
+            newState.perception =  false;
+            newState.perform =  false;
+            newState.profession =  true;
+            newState.ride = true;
+            newState.senseMotive =  true;
+            newState.sleightOfHand =  false;
+            newState.spellcraft =  true;
+            newState.stealth =  false;
+            newState.survival =  false;
+            newState.swim =  false;
+            newState.useMagicDevice = false;
+            setSkillsCheck({...skillsCheck, ...newState});
+
+            setCharacterClass('palladin')
           } else if (value === 99) {
+
+            newState.acrobatic =  false;
+            newState.appraise =  true;
+            newState.bluff =  true;
+            newState.climb =  true;
+            newState.craft =  true;
+            newState.diplomacy =  false;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.escapeArtist =  false;
+            newState.fly =   true;
+            newState.handleAnimal =  true;
+            newState.heal = true;
+            newState.intimidate =  true;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana =  true;
+            newState.knowledgeDungeoneering =  true;
+            newState.knowledgeGeography =  true;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  true;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =  false;
+            newState.perception = true;
+            newState.perform =  false;
+            newState.profession =  true;
+            newState.ride = false;
+            newState.senseMotive =  false;
+            newState.sleightOfHand =  false;
+            newState.spellcraft =  true;
+            newState.stealth =  false;
+            newState.survival =  false;
+            newState.swim = false;
+            newState.useMagicDevice = false;
+        
+            setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass('rogue')
           } else if (value === 110) {
+
+
+            newState.acrobatic =  false;
+            newState.appraise =  false;
+            newState.bluff =  false;
+            newState.climb =  false;
+            newState.craft =  false;
+            newState.diplomacy =  false;
+            newState.disableDevice = false;
+            newState.disguice =  false;
+            newState.escapeArtist =  false;
+            newState.fly =  false;
+            newState.handleAnimal =  false;
+            newState.heal = false;
+            newState.intimidate =  false;
+            newState.knowledgeAll = false;
+            newState.knowledgeArcana = false;
+            newState.knowledgeDungeoneering =  false;
+            newState.knowledgeGeography =  false;
+            newState.knowledgeHisotry =  false;
+            newState.knowledgeLocal =  false;
+            newState.knowledgeNautre =  false;
+            newState.knowledgeNobility =  false;
+            newState.knowledgePlanes =  false;
+            newState.knowledgeReligion =false;
+            newState.linguistics =  false;
+            newState.perception =  false;
+            newState.perform =  false;
+            newState.profession =  false;
+            newState.ride = false;
+            newState.senseMotive =  false;
+            newState.sleightOfHand =  false;
+            newState.spellcraft =  false;
+            newState.stealth =  false;
+            newState.survival =  false;
+            newState.swim =  false;
+            newState.useMagicDevice = false;
+            setSkillsCheck({...skillsCheck, ...newState});
+
           setCharacterClass('wizard')
           } else {
+
+            newState.acrobatic =  true;
+              newState.appraise =  false;
+              newState.bluff =  false;
+              newState.climb =  true;
+              newState.craft =  true;
+              newState.diplomacy =  false;
+              newState.disableDevice =  false;
+              newState.disguice =  false;
+              newState.escapeArtist =  false;
+              newState.fly = false;
+              newState.handleAnimal = false;
+              newState.heal =  false;
+              newState.intimidate = true;
+              newState.knowledgeAll = false;
+              newState.knowledgeArcana =  false;
+              newState.knowledgeDungeoneering = false;
+              newState.knowledgeGeography = false;
+              newState.knowledgeHisotry =  false;
+              newState.knowledgeLocal =  false;
+              newState.knowledgeNautre =  true;
+              newState.knowledgeNobility =  false;
+              newState.knowledgePlanes =  false;
+              newState.knowledgeReligion =  false;
+              newState.linguistics =  false;
+              newState.perception =  true;
+              newState.perform =  false;
+              newState.profession =  false;
+              newState.ride =  true;
+              newState.senseMotive =  false;
+              newState.sleightOfHand =  false;
+              newState.spellcraft =  false;
+              newState.stealth =  false;
+              newState.survival =  true;
+              newState.swim =  true;
+              newState.useMagicDevice = false;
+              setSkillsCheck({...skillsCheck, ...newState});
+
             setCharacterClass("barbarian")
         }
       }
